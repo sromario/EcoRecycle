@@ -1,3 +1,4 @@
+import 'package:ecorecycle/screen/RegisterPage.dart';
 import 'package:ecorecycle/components/CustomRoundedIconButton.dart';
 import 'package:ecorecycle/core/theme/color_schemes.dart';
 import 'package:ecorecycle/screen/Splash.dart';
@@ -155,7 +156,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(25, 15, 25, 15),
                     margin: const EdgeInsets.symmetric(horizontal: 32),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 54, 192, 50),
+                        color: Color.fromARGB(255, 43, 133, 31),
                         borderRadius: BorderRadius.circular(34)),
                     child: Text(
                       'Login',
@@ -177,7 +178,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>  Splash()),
+                          builder: (context) =>  RegisterPage()),
                     );
                   },
                   child: Padding(
