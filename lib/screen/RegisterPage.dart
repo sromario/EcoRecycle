@@ -1,10 +1,9 @@
 //import 'package:app_dsi/screens/home_page.dart';
 import 'package:ecorecycle/screen/Splash.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ecorecycle/core/theme/color_schemes.dart';
+
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({Key? key});

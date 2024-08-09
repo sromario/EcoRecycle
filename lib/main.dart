@@ -1,9 +1,9 @@
 import 'package:ecorecycle/screen/LoginPage.dart';
-import 'package:ecorecycle/screen/Splash.dart';
+import 'package:ecorecycle/screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecorecycle/core/theme/color_schemes.dart';
 import 'package:ecorecycle/screen/RegisterPage.dart';
-import 'package:ecorecycle/screen/RegisterPage.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +23,11 @@ class MyApp extends StatelessWidget {
         colorScheme: lightColorScheme,
       ),
       routes: {
-        '/': (context) =>  LoginPage(),
+        '/homepage':(context) => const HomePage(),
+        '/': (context) =>  HomePage(),
         '/registerpage': (context) => RegisterPage(),
-        //'/Splash': (context) => const Splash(),      
+        //'/Splash': (context) => const Splash(),
+             
       },
     );
   }

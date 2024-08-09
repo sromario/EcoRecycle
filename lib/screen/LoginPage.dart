@@ -1,7 +1,7 @@
 import 'package:ecorecycle/screen/RegisterPage.dart';
 import 'package:ecorecycle/components/CustomRoundedIconButton.dart';
-import 'package:ecorecycle/core/theme/color_schemes.dart';
 import 'package:ecorecycle/screen/Splash.dart';
+import 'package:ecorecycle/screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,13 +50,13 @@ class LoginPage extends StatelessWidget {
               ),
               // const SizedBox(height: 10),
               SizedBox(
-                child: TextFormField(
+                child:  TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Email',
-                    prefixIcon: Icon(Icons.alternate_email),
+                    prefixIcon: const Icon(Icons.alternate_email),
                     hintText: 'Digite seu email',
                     labelStyle: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
                       ),

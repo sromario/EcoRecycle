@@ -8,8 +8,8 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color.fromARGB(255, 248, 236, 236), // cor escolhida
+      body:  Container(
+        color: const  Color.fromARGB(255, 248, 236, 236), // cor escolhida
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
