@@ -1,79 +1,39 @@
-
-
 import 'package:flutter/material.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: const Padding(
-        padding:  EdgeInsets.only(),
-        child: Column(
-        
-        children: [
-          // Ola , Fulano !
-          Text(
-            'Ola Fulano',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w300
-            )
-            ),
-                // Pontos de coleta 
-          Text(
-            'Pontos de Coleta',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w300
-            )
-            ),
-         
-       
-        
-        // outras opcoes
-        
-        // <btn> Lembrete de Coleta
-        
-        
+    return const Scaffold(
+        body: Column(
+      children: [
+        // Ola Fulano
+        Text('Ola Fulano', style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),),
+        // Pontos de Coleta
+        SizedBox(height: 30,),
+        Text('Pontos de Coleta', style: TextStyle(fontSize: 25),)
+
         /*
-        
-        <bottom navigator> 
-        
-        // Home 
-        
-        // My Recycle
-        
-        //  Logout
-        
-        
+          row
+          card: status- livre, text- Posto 7- Boa viagem, data - hoje , hora - 14h - 15
+
         */
-        ],
-        
-        
-        ),
-      ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-            ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.logout),
-            label: 'Sair',
-            ),
-        ],
+              )
+            ],
         ),
-    );
+
+        // Outras opcoes
+
+        // btn lembrete de coleta
+
+      ],
+    ));
   }
 }
