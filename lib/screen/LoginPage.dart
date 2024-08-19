@@ -5,10 +5,15 @@ import 'package:ecorecycle/screen/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ecorecycle/services/autenticar.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
-  final _formkey = GlobalKey<FormState>(); 
+  final _formkey = GlobalKey<FormState>();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+
+  AutenticacaoServico _autenticaServico = AutenticacaoServico(); 
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +56,7 @@ class LoginPage extends StatelessWidget {
               // const SizedBox(height: 10),
               SizedBox(
                 child:  TextFormField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     prefixIcon: const Icon(Icons.alternate_email),
@@ -83,6 +89,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16.0),
                 child: SizedBox(
                   child: TextFormField(
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: 'Senha',
                     prefixIcon: Icon(Icons.lock),
@@ -113,7 +120,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -122,7 +129,9 @@ class LoginPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Splash()),
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const Splash(nextRoute: '/registerpage')),
                         );
                       },
                       child: Text(
@@ -142,14 +151,35 @@ class LoginPage extends StatelessWidget {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    // verificar formulario para proxima pagina
-                    if(_formkey.currentState!.validate()) {
-                      // se o formulario for valido, para proxima pagina 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Splash()));
-                   };
+                    String email = _emailController.text;
+                    String senha = _passwordController.text;
+                    
+                    // Verificar se o formulário é válido
+                    if (_formkey.currentState!.validate()) {
+                      _autenticaServico.logarUsuario(email: email, senha: senha).then(
+                        (String? erro) {
+                        if (erro != null) {
+                          // Mostrar mensagem de erro
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text('Erro4: $erro'),
+                          ));
+                        } 
+                        else {
+                          // Navegar para a próxima página se não houver erro
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Splash(nextRoute: '/homepage'),
+                            ),
+                          );
+                        }
+                      }).catchError((e) {
+                        // Tratar erros inesperados
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Erro ao autenticar: $e'),
+                        ));
+                      });
+                    }
                   },
                   child: Container(
                     alignment: Alignment.center,

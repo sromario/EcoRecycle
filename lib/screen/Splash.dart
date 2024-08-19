@@ -3,10 +3,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 class Splash extends StatelessWidget {
-  const Splash({super.key});
+  final String nextRoute; // Adicionando o parâmetro nextRoute
+
+  const Splash({super.key, required this.nextRoute}); // Construtor atualizado
+
+
 
   @override
   Widget build(BuildContext context) {
+    // Tempo que a tela de splash ficará visível (por exemplo, 3 segundos)
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, nextRoute); // Redirecionamento
+    });
+  
     return Scaffold(
       body:  Container(
         color: const  Color.fromARGB(255, 248, 236, 236), // cor escolhida
