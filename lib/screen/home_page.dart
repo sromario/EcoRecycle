@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
         Text('Ola Fulano', style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),),
         // Pontos de Coleta
         SizedBox(height: 30,),
-        Text('Pontos de Coleta', style: TextStyle(fontSize: 25),)
+        Text('Pontos de Coleta', style: TextStyle(fontSize: 25),),
 
         /*
           row
